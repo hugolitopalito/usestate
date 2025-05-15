@@ -1,40 +1,38 @@
 import { useState } from "react"
 
-export function App(){
-  const [numero,setNumero] = useState(100)
+export function App() {
+  const [numero, setNumero] = useState(100)
 
-  function diminuir(){
+  function diminuir() {
     setNumero(numero - 100)
   }
 
-  function aumentar(){
+  function aumentar() {
     setNumero(numero + 100)
   }
- 
-  const[Booleano,setEstadoDoBotao] = useState(true)
 
-  function Booleano() {
-    if(Booleano === true){
+  const [estadoDoBotao, setEstadoDoBotao] = useState(true)
 
-      setEstadoDoBotao(false)
-    }else{
-      setEstadoDoBotao(true)
+  function mudarEstado() {
+    if(estadoDoBotao === true){
+      setEstadoDoBotao("Mostrar")
+    }
+    else{
+      setEstadoDoBotao("Esconder")
     }
   }
 
-  return(
-    <div>
-      <h1>Número:{numero}</h1>
+return (
+  <div>
+    <h1>Número:{numero}</h1>
 
     <div>
       <button onClick={diminuir}>Diminuir</button>
       <button onClick={aumentar}>Aumentar</button>
     </div>
 
-    <div>
-      <p>sla</p>
-      <button onClick={Booleano}>{}</button>
-    </div>
-    </div>
-  )
+    <p>{}</p>
+    <button onClick={mudarEstado}>{estadoDoBotao}</button>
+  </div>
+)
 }
