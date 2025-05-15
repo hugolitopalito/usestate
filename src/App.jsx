@@ -32,7 +32,7 @@ return (
     </div>
 
     <p>{estadoDoBotao === true ? `paragrafo pra mostrar` : ``}</p>
-    <button onClick={mudarEstado}>{estadoDoBotao === true ? "Mostrar" : "Esconder"}</button>
+    <button onClick={mudarEstado}>{estadoDoBotao === true ? "Esconder" : "Mostrar"}</button>
   </div>
 )
 }
