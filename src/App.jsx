@@ -1,38 +1,38 @@
 import { useState } from "react"
 
-
 export function App() {
-
   const [numero, setNumero] = useState(100)
-  const [bool, setBool] = useState(true)
 
   function diminuir() {
-    setNumero(numero-100)
+    setNumero(numero - 100)
   }
 
   function aumentar() {
-    setNumero(numero+100)
+    setNumero(numero + 100)
   }
 
-  function mostrar() {
-    setBool(true)
+  const [estadoDoBotao, setEstadoDoBotao] = useState(false)
+
+  function mudarEstado() {
+    if(estadoDoBotao === false){
+      setEstadoDoBotao(true)
+    }
+    else(
+      setEstadoDoBotao(false)
+    )
   }
 
-  function esconder() {
-    setBool(false)
-  }
+return (
+  <div>
+    <h1>Número:{numero}</h1>
 
-  return (
     <div>
-      <button onClick={diminuir}>diminuir</button>
-      <button onClick={aumentar}>aumentar</button>
+      <button onClick={diminuir}>Diminuir</button>
+      <button onClick={aumentar}>Aumentar</button>
+    </div>
 
-      {bool ? <p>{numero}</p> : null}
-
-      {bool ? (
-        <button onClick={esconder}>esconder</button>
-      ) : (
-        <button onClick={mostrar}>mostrar</button>
-      )}
-    </div>)
+    <p>{estadoDoBotao === true ? `paragrafo pra mostrar` : ``}</p>
+    <button onClick={mudarEstado}>{estadoDoBotao === true ? "Mostrar" : "Esconder"}</button>
+  </div>
+)
 }
